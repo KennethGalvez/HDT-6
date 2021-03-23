@@ -2,22 +2,14 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.util.HashMap;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 import java.io.BufferedWriter;
+
 class Main {
   public static void main(String[]args){
     Factory<String,String> imp = new Factory<String,String>();
-    try{
-          File file = new File("cards_desc.txt");
-          // Si el archivo no existe es creado
-          if (!file.exists()) {
-              file.createNewFile();
-        }
-    }catch (Exception e) {
-              e.printStackTrace();
-    }
+    ;
+
     int res = 0;
     Scanner s = new Scanner(System.in);
     System.out.println("\t Bienvenido lector de cartas ");
@@ -40,8 +32,33 @@ class Main {
       }
     }
 
+    if(res==1){
+      //almacen = imp.getStack(res);
+
+    }else if(res==2){
+      //almacen = imp.getStack(res);
+
+    }else if(res==3){
+      //almacen = imp.getStack(res);
+
+    }
+
+    try{
+      File file = new File("cards_desc.txt");
+      Scanner input = new Scanner (file);
+      while(input.hasNextLine()){
+        String dato = input.nextLine();
+        String[] partes = dato.split("|");
+        String llave = partes[0];
+        String valor = partes[1];
+
+      }
+
+    }catch (Exception e) {
+      e.printStackTrace();
+    }
+
     if(res == 1){
-      HashMap almacen = imp.getStack(res);
       
       boolean salir = false;
 
@@ -57,9 +74,10 @@ class Main {
         System.out.println("7. Salir");
 
 
-        opcion = s.nextInt();
+        int opcion = s.nextInt();
         switch (opcion){
           case 1:
+            System.out.println("Ingrese ");
             break;
           case 2:
             break;
@@ -75,7 +93,7 @@ class Main {
             salir = true;
             break;
           default:
-            System.out.println("Solo numeros entre 1 y 7")          
+            System.out.println("Solo numeros entre 1 y 7");
         }
       }
       
@@ -96,7 +114,7 @@ class Main {
         System.out.println("7. Salir");
 
 
-        opcion = s.nextInt();
+        int opcion = s.nextInt();
         switch (opcion){
           case 1:
             break;
@@ -114,7 +132,7 @@ class Main {
             salir = true;
             break;
           default:
-            System.out.println("Solo numeros entre 1 y 7")          
+            System.out.println("Solo numeros entre 1 y 7");
         }
       }
       
@@ -135,7 +153,7 @@ class Main {
         System.out.println("7. Salir");
 
 
-        opcion = s.nextInt();
+       int opcion = s.nextInt();
         switch (opcion){
           case 1:
             break;
@@ -153,7 +171,7 @@ class Main {
             salir = true;
             break;
           default:
-            System.out.println("Solo numeros entre 1 y 7")          
+            System.out.println("Solo numeros entre 1 y 7");
         }
       }
       
